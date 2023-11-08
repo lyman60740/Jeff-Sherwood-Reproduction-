@@ -1,9 +1,8 @@
 <template>
   <div class="hero">
-    <h1>Site vitrine</h1>
-    <p>
-      Bienvenue sur un template de site vitrine Vue3 + Vite Js + SCSS + GSAP
-      Premium
+    <h1>{{ sectionData.header }}</h1>
+    <p v-for="(paragraph, index) in sectionData.paragraphs" :key="index">
+      {{ paragraph }}
     </p>
     <button>CTA</button>
   </div>
@@ -11,9 +10,19 @@
 
 <script>
 import gsap from "gsap";
+import jsonData from "../data/data.json"; // Assurez-vous que le chemin est correct
 
 export default {
   name: "Hero",
+  data() {
+    return {
+      sectionData: jsonData.sections[0], // Prend la première section de votre JSON
+      contactInfo: jsonData.contactInfo,
+    };
+  },
+  mounted() {
+    // Ici, vous pouvez utiliser GSAP pour des animations si nécessaire
+  },
 };
 </script>
 

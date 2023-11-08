@@ -1,0 +1,16 @@
+{
+
+    "sections": [
+        {
+            "header": "Site Vitrine",
+            "paragraphs": [
+                "Bienvenue sur un template de site vitrine",
+                "Vue3 + Vite Js + SCSS + GSAP Premium"
+            ]
+        }
+    ],
+    "contactInfo": {
+        "phoneNumber": "123-456-7890",
+        "address": "123 Main St, Anytown, USA"
+    }
+}
