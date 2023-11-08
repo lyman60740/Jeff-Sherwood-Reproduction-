@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'RightGroteskMedium';
+    src: url('./fonts/RightGrotesk-Medium.otf') format('opentype');
+  }
+
+$primary-color: rgba(255, 255, 255, 0.87);
+$secondary-color: #242424;
+
+$font-family: 'RightGroteskMedium', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+$border-radius: 0.25rem;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
