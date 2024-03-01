@@ -1,27 +1,24 @@
 @use 'variables';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
   body {
-    margin: 0;
-    padding: 0;
-    background: variables.$secondary-color;
-    color: variables.$primary-color;
-    font-family: variables.$font-family;
-    background: variables.$primary-color;
-    color: variables.$secondary-color;
-    min-height: 100vh;
+    background-color: #000;
+  margin-bottom: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 5rem;
+  font-weight: 500;
+  color: white ;
+  letter-spacing: 0.3px;
+  margin: 0;
   }
   #app {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 110px;
+    padding: 0 30px;
     box-sizing: border-box;
   }
-  button {
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: variables.$secondary-color;
-    color: variables.$primary-color;
-  }
+ 
  
