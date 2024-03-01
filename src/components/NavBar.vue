@@ -6,7 +6,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="#">Resume</a></li>
-      <li><a href="#">Service</a></li>
+      <li><a href="#">Services</a></li>
       <li><a href="#">Get in Touch</a></li>
     </ul>
   </nav>
@@ -50,8 +50,12 @@ nav {
   font-size: 24px;
   font-weight: 600;
   z-index: 1000;
-  padding: 26px 0 3vh;
+  padding: 26px 30px 3vh 30px;
+  box-sizing: border-box;
   padding-top: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .left {
   &_logo {

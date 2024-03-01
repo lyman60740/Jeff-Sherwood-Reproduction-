@@ -24,20 +24,80 @@
       </h1>
       <span class="scroll">(SCROLL)</span>
     </div>
+    <div class="videoBox" ref="videoBox">
+      <div class="videoBox_contain">
+        <video
+          muted
+          playsinline
+          autoplay
+          loop
+          src="https://assets-global.website-files.com/65a6d240beef37496c54ef5b/65cfa4a14e2b50d34dcb03ef_jeff-reel-transcode.mp4"
+        ></video>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import jsonData from "../data/data.json"; // Assurez-vous que le chemin est correct
 
+gsap.registerPlugin(ScrollTrigger);
 export default {
   name: "HeroBanner",
   data() {
     return {};
   },
   mounted() {
-    // Ici, vous pouvez utiliser GSAP pour des animations si nécessaire
+    this.movingVideo();
+  },
+  methods: {
+    movingVideo() {
+      const tl = gsap.timeline();
+      tl.to(this.$refs.videoBox, {
+        scrollTrigger: {
+          trigger: this.$refs.videoBox,
+          start: "top top+=5%",
+          endTrigger: ".transitBox",
+          end: "top-=8% top",
+          pin: true,
+        },
+      });
+      tl.to(this.$refs.videoBox, {
+        scrollTrigger: {
+          trigger: ".transitBox",
+          start: "top-=10% top",
+          end: "+=300",
+          scrub: true,
+          onEnter: () => {
+            gsap.to(".videoBox_contain", {
+              y: "60%",
+              duration: 0.5,
+              ease: "linear",
+            });
+          },
+          onLeaveBack: () => {
+            gsap.to(".videoBox_contain", {
+              y: "0px",
+              duration: 0.5,
+              ease: "linear",
+            });
+          },
+          onEnterBack: () => {
+            gsap.to(".videoBox_contain", {
+              y: "60%",
+              duration: 0.5,
+              ease: "linear",
+            });
+          },
+        },
+        left: "0",
+        right: "auto",
+        x: "0%",
+        scale: 1,
+      });
+    },
   },
 };
 </script>
@@ -74,6 +134,30 @@ export default {
     position: absolute;
     bottom: 2em;
     right: 0%;
+  }
+}
+
+.videoBox {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  left: auto;
+  mix-blend-mode: difference;
+
+  width: 94vw;
+  height: 87vh;
+  transform: scale(0.425) translateX(50%);
+  transform-origin: center;
+  max-width: none !important;
+  max-height: none !important;
+  &_contain {
+    width: 100%;
+    height: 100%;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 </style>
