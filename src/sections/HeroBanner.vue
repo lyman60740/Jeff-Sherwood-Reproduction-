@@ -51,6 +51,11 @@ export default {
   },
   mounted() {
     this.movingVideo();
+    this.leaveTop();
+    window.addEventListener("mousemove", this.moveVideoBoxOnCursorMove);
+  },
+  beforeDestroy() {
+    window.removeEventListener("mousemove", this.moveVideoBoxOnCursorMove);
   },
   methods: {
     movingVideo() {
@@ -75,20 +80,28 @@ export default {
               y: "60%",
               duration: 0.5,
               ease: "linear",
+              overwrite: "auto",
             });
+            window.removeEventListener(
+              "mousemove",
+              this.moveVideoBoxOnCursorMove
+            );
           },
           onLeaveBack: () => {
             gsap.to(".videoBox_contain", {
               y: "0px",
               duration: 0.5,
               ease: "linear",
+              overwrite: "auto",
             });
+            window.addEventListener("mousemove", this.moveVideoBoxOnCursorMove);
           },
           onEnterBack: () => {
             gsap.to(".videoBox_contain", {
               y: "60%",
               duration: 0.5,
               ease: "linear",
+              overwrite: "auto",
             });
           },
         },
@@ -96,6 +109,48 @@ export default {
         right: "auto",
         x: "0%",
         scale: 1,
+      });
+    },
+    leaveTop() {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top+=1",
+          endTrigger: ".hero",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      tl.to(".title img", {
+        y: "-60%",
+        stagger: 0.03,
+        opacity: 0,
+      });
+      tl.to(
+        ".accroche",
+        {
+          opacity: 0,
+        },
+        "<"
+      );
+    },
+    moveVideoBoxOnCursorMove(event) {
+      const screenWidth = window.innerWidth;
+      const cursorX = event.clientX;
+      // Calculer la distance relative du curseur depuis le centre de l'écran
+      const distanceFromCenter = cursorX - screenWidth / 2;
+      const percentageFromCenter = distanceFromCenter / (screenWidth / 2);
+
+      // Déplacement maximum en pourcentage de la largeur de l'écran
+      const maxMove = 30; // Ajustez selon le besoin
+      // Appliquer le facteur d'aisance pour ralentir le mouvement vers les bords
+      const moveX = maxMove * percentageFromCenter;
+
+      gsap.to(this.$refs.videoBox, {
+        x: `${moveX}%`,
+
+        ease: "power2.out",
+        overwrite: "auto",
       });
     },
   },
@@ -143,13 +198,14 @@ export default {
   right: 0;
   left: auto;
   mix-blend-mode: difference;
-
+  will-change: transform;
   width: 94vw;
   height: 87vh;
   transform: scale(0.425) translateX(50%);
   transform-origin: center;
   max-width: none !important;
   max-height: none !important;
+  transition: transform 0.2s ease;
   &_contain {
     width: 100%;
     height: 100%;
