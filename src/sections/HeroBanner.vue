@@ -77,7 +77,7 @@ export default {
           scrub: true,
           onEnter: () => {
             gsap.to(".videoBox_contain", {
-              y: "60%",
+              y: "70%",
               duration: 0.5,
               ease: "linear",
               overwrite: "auto",
@@ -105,10 +105,14 @@ export default {
             });
           },
         },
-        left: "0",
-        right: "auto",
         x: "0%",
         scale: 1,
+        onComplete: () => {
+          gsap.to(this.$refs.videoBox, {
+            x: "0%",
+            duration: 0.5,
+          });
+        },
       });
     },
     leaveTop() {
@@ -214,6 +218,11 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .accroche {
+    font-size: 3rem;
   }
 }
 </style>

@@ -4,6 +4,9 @@
       <div id="smooth-content">
         <HeroBanner />
         <TransitVideo />
+        <About />
+        <Works />
+        <News />
       </div>
     </div>
   </div>
@@ -16,12 +19,18 @@ import ScrollSmoother from "gsap/ScrollSmoother";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 import HeroBanner from "../sections/HeroBanner.vue";
 import TransitVideo from "../sections/TransitVideo.vue";
+import About from "../sections/About.vue";
+import Works from "../sections/Works.vue";
+import News from "../sections/News.vue";
 
 export default {
   name: "Hero",
   components: {
     HeroBanner,
     TransitVideo,
+    About,
+    Works,
+    News,
   },
   data() {
     return {};

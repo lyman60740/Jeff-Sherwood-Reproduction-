@@ -56,6 +56,17 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  mix-blend-mode: difference;
+  & span:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  & a:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+    cursor: pointer;
+  }
 }
 .left {
   &_logo {

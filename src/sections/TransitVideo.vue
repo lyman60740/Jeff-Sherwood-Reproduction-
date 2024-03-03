@@ -19,19 +19,21 @@ export default {
 
 <style scoped lang="scss">
 .transitBox {
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 .videoPlace {
   width: 94vw;
-  height: 115vh;
+  min-height: 115vh;
 }
 span {
   font-size: 1.6rem;
-  padding-bottom: 40px;
+
   font-weight: 400;
 }
 p {
   font-size: 7rem;
-  padding-top: 20px;
+  padding-top: 60px;
   font-weight: 800;
 }
 </style>
