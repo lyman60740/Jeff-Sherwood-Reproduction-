@@ -82,6 +82,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.horizontalScroll();
+      this.leaveTop();
     }, 100);
   },
   methods: {
@@ -146,6 +147,18 @@ export default {
         y: "0%", // Zoom léger
         duration: 0.3,
         ease: "power1.out",
+      });
+    },
+    leaveTop() {
+      gsap.to(".works", {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".news",
+          start: "top+=17% bottom",
+          end: "+=20%",
+          scrub: 1,
+        },
       });
     },
   },

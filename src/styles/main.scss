@@ -1,6 +1,15 @@
 @use 'variables';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*::selection {
+  background-color: transparent;
+  color: inherit; 
+}
 
+
+*::-webkit-selection {
+  background-color: transparent;
+  color: inherit;
+}
   body {
     background-color: #000;
   margin-bottom: 0;
