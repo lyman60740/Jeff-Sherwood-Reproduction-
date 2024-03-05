@@ -1,7 +1,7 @@
 <template>
   <div class="works">
-    <h2>SELECT WORK</h2>
-    <div class="carouselContainer" ref="carouselContainer">
+    <h2 class="animate-on-scroll">SELECT WORK</h2>
+    <div class="carouselContainer animate-on-scroll" ref="carouselContainer">
       <div
         class="carouselContainer_work"
         v-for="(work, index) in works"
@@ -82,7 +82,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.horizontalScroll();
-      this.leaveTop();
+      // this.leaveTop();
     }, 100);
   },
   methods: {
@@ -101,6 +101,7 @@ export default {
             end: () => "+=" + moveDistance * 0.7,
             scrub: 1,
             pin: true,
+            pinSpacing: true,
           },
         });
       });
@@ -156,6 +157,8 @@ export default {
         scrollTrigger: {
           trigger: ".news",
           start: "top+=17% bottom",
+          endTrigger: ".news",
+
           end: "+=20%",
           scrub: 1,
         },

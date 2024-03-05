@@ -2,40 +2,93 @@
   <nav>
     <div class="left">
       <span class="left_logo">J. Sherwood</span>
-      <span>Laguna Beach, CA {{ currentHour }}</span>
+      <div>Laguna Beach, CA {{ currentHour }}</div>
     </div>
     <ul class="nav-links">
       <li><a href="#">Resume</a></li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Get in Touch</a></li>
+      <li class="menu">
+        <div class="menu_word">
+          <span>Menu</span>
+          <span>Close</span>
+        </div>
+
+        <div class="burger">
+          <div></div>
+          <div></div>
+        </div>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
 import gsap from "gsap";
-import jsonData from "../data/data.json";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default {
   name: "NavBar",
 
   data() {
     return {
-      currentHour: "", // Pour stocker l'heure actuelle
+      currentHour: "",
     };
   },
   mounted() {
-    this.getCurrentHour(); // Appel de la fonction pour obtenir l'heure actuelle
+    this.getCurrentHour();
+    this.menuTransform();
   },
   methods: {
     getCurrentHour() {
-      const now = new Date(); // Obtenir la date et l'heure actuelles
+      const now = new Date();
       const options = {
-        timeZone: "America/Los_Angeles", // Fuseau horaire de Laguna Beach, CA
+        timeZone: "America/Los_Angeles",
         hour: "numeric",
         minute: "numeric",
       };
-      this.currentHour = now.toLocaleString("en-US", options); // Formatage de l'heure actuelle selon les options
+      this.currentHour = now.toLocaleString("en-US", options);
+    },
+    menuTransform() {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".transitBox",
+          start: "top top",
+          end: "+=200",
+          toggleActions: "play none none reverse",
+        },
+      });
+      tl.to(
+        [
+          ".nav-links li:nth-child(1)",
+          ".nav-links li:nth-child(2)",
+          ".left div",
+        ],
+        {
+          duration: 0.5,
+          y: "-10vh",
+          ease: "power2.inOut",
+          stagger: 0.1,
+        }
+      );
+      tl.to(
+        ".nav-links li:nth-child(3)",
+        {
+          duration: 0.5,
+          xPercent: -70,
+          ease: "power2.inOut",
+        },
+        "<50%"
+      );
+      tl.to(
+        ".nav-links li:nth-child(4)",
+        {
+          duration: 0.5,
+          right: 0,
+          ease: "power2.inOut",
+        },
+        "<30%"
+      );
     },
   },
 };
@@ -69,15 +122,45 @@ nav {
   }
 }
 .left {
+  display: flex;
   &_logo {
     margin-right: 155px;
   }
 }
 .nav-links {
   display: flex;
-
+  position: relative;
   & li:not(:last-child) {
     margin-right: 40px;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: -10vw;
+  &_word {
+    height: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  & .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+    height: 10px;
+    width: 20px;
+
+    & div {
+      height: 2px;
+      width: 100%;
+      mix-blend-mode: difference;
+      background: white;
+    }
   }
 }
 </style>

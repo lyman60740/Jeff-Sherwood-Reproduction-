@@ -1,5 +1,5 @@
 <template>
-  <div class="about" ref="about">
+  <div class="about animate-on-scroll" ref="about">
     <div class="left">
       <h2>(ABOUT)</h2>
       <div class="videoBox1" ref="videoBox1">
@@ -16,17 +16,17 @@
     </div>
 
     <div class="textBloc">
-      <p>
+      <p class="animate-on-scroll">
         I am a multidisciplinary digital product & brand consultant, working at
         the convergence of business strategy, brand, digital and content.
       </p>
-      <p>
+      <p class="animate-on-scroll">
         I work with founders, CEOs, and executive teams to realize their most
         significant opportunities. From model optimization to market strategy
         and developing new innovative products, I’ll help you make your vision
         visible.
       </p>
-      <p>
+      <p class="animate-on-scroll">
         In over two decades, I've partnered with a diverse set of clients across
         many industries. From large corporations to start-ups, celebrity
         personalities and non-profit organizations.

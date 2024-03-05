@@ -1,11 +1,11 @@
 <template>
   <div class="news">
-    <div class="topNews">
+    <div class="topNews animate-on-scroll">
       <h2>NEWS & UPDATES</h2>
       <span>SEE ALL</span>
     </div>
 
-    <div class="newsBloc">
+    <div class="newsBloc animate-on-scroll">
       <div class="bloc">
         <img
           src="https://assets-global.website-files.com/65a6d240beef37496c54ef5b/65c1b8bde6cc834c337cfc25_avgjoe-book-cover.jpg"
@@ -25,7 +25,7 @@
       <h3 class="pressTitle">Recent Press</h3>
       <div class="pressBoxLines">
         <div
-          class="pressLine"
+          class="pressLine animate-on-scroll"
           v-for="(pressLine, index) in pressLines"
           :key="index"
         >

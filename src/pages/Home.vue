@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Menu />
     <div id="smooth-wrapper">
       <div id="smooth-content">
         <div class="mainHome">
@@ -26,10 +27,12 @@ import About from "../sections/About.vue";
 import Works from "../sections/Works.vue";
 import News from "../sections/News.vue";
 import Footer from "../components/Footer.vue";
+import Menu from "../components/Menu.vue";
 
 export default {
   name: "Hero",
   components: {
+    Menu,
     HeroBanner,
     TransitVideo,
     About,
@@ -44,10 +47,34 @@ export default {
     ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
-      smooth: 1.2, // how long (in seconds) it takes to "catch up" to the native scroll position
-      effects: true, // looks for data-speed and data-lag attributes on elements
-      smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+      smooth: 1.2,
+      effects: true,
+      smoothTouch: 0.1,
     });
+    this.initScrollTriggerAnimations();
+  },
+  methods: {
+    initScrollTriggerAnimations() {
+      // Sélectionner tous les éléments avec la classe '.animate-on-scroll'
+      const elements = document.querySelectorAll(".animate-on-scroll");
+
+      // Boucler sur chaque élément et créer un ScrollTrigger individuel
+      elements.forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el, // Utiliser l'élément actuel comme déclencheur
+            start: "top 80%", // Commence l'animation quand le haut de l'élément atteint 80% du viewport
+            end: "bottom 20%", // Fin de l'animation quand le bas de l'élément quitte 20% du viewport
+            toggleActions: "play none none reverse", // Jouer l'animation à l'entrée, inverser à la sortie
+            markers: false, // Mettez à true pour voir les déclencheurs pendant le développement
+          },
+          opacity: 0, // Commencer l'animation avec l'opacité à 0
+          y: 50, // Commencer plus bas par 50 pixels
+          duration: 1, // Durée de l'animation
+          // Vous pouvez personnaliser les propriétés d'animation selon les besoins
+        });
+      });
+    },
   },
 };
 </script>
@@ -55,7 +82,7 @@ export default {
 <style scoped lang="scss">
 .mainHome {
   z-index: 2;
-  padding: 100px 40px 0 40px;
+  padding: 0 40px 0 40px;
   position: relative;
   background: black;
 }

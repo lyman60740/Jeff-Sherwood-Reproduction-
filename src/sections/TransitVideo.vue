@@ -1,8 +1,10 @@
 <template>
   <div class="transitBox">
     <div class="videoPlace"></div>
-    <span>(SINCE 2004)</span>
-    <p>CRAFTING MEANINGFUL CONNECTIONS BETWEEN BUSINESSES AND PEOPLE.</p>
+    <span class="animate-on-scroll">(SINCE 2004)</span>
+    <p class="animate-on-scroll">
+      CRAFTING MEANINGFUL CONNECTIONS BETWEEN BUSINESSES AND PEOPLE.
+    </p>
   </div>
 </template>
 
