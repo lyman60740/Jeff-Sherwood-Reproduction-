@@ -120,7 +120,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .left {
     & h2 {
       font-size: 1.1rem;

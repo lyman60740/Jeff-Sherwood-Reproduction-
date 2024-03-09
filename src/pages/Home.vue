@@ -92,7 +92,7 @@ export default {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .mainHome {
   }
   #smooth-content {

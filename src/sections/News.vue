@@ -378,7 +378,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .news {
     margin-top: calc(120px + 5vh);
     & h2 {

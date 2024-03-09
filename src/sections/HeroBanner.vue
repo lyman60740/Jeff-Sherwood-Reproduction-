@@ -219,7 +219,7 @@ export default {
     object-fit: cover;
   }
 }
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .bottom .accroche {
     font-size: 3rem;
     max-width: 22ch;

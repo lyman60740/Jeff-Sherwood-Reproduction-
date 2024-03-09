@@ -97,6 +97,7 @@ export default {
 <style scoped lang="scss">
 nav {
   width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
@@ -163,7 +164,7 @@ nav {
     }
   }
 }
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   nav {
     font-size: 20px;
     padding-top: 26px;

@@ -39,7 +39,7 @@ p {
   font-weight: 800;
   line-height: 110%;
 }
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .transitBox {
     & span {
       font-size: 1.1rem;

@@ -201,7 +201,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1800px) {
   .footer {
     padding: 4rem 40px 24px 40px;
     &_credits {
