@@ -37,5 +37,20 @@ p {
   font-size: 7rem;
   padding-top: 60px;
   font-weight: 800;
+  line-height: 110%;
+}
+@media screen and (max-width: 1920px) {
+  .transitBox {
+    & span {
+      font-size: 1.1rem;
+    }
+    & p {
+      font-size: 5rem;
+      padding-top: 40px;
+    }
+  }
+  .videoPlace {
+    min-height: 100vh;
+  }
 }
 </style>

@@ -25,7 +25,7 @@
       <span class="scroll">(SCROLL)</span>
     </div>
     <div class="videoBox" ref="videoBox">
-      <div class="videoBox_contain">
+      <div class="videoBox_contain" ref="videoContain">
         <video
           muted
           playsinline
@@ -41,7 +41,6 @@
 <script>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import jsonData from "../data/data.json"; // Assurez-vous que le chemin est correct
 
 gsap.registerPlugin(ScrollTrigger);
 export default {
@@ -76,8 +75,8 @@ export default {
           end: "+=300",
           scrub: true,
           onEnter: () => {
-            gsap.to(".videoBox_contain", {
-              y: "70%",
+            gsap.to(this.$refs.videoContain, {
+              y: "60%",
               duration: 0.5,
               ease: "linear",
               overwrite: "auto",
@@ -88,7 +87,7 @@ export default {
             );
           },
           onLeaveBack: () => {
-            gsap.to(".videoBox_contain", {
+            gsap.to(this.$refs.videoContain, {
               y: "0px",
               duration: 0.5,
               ease: "linear",
@@ -97,7 +96,7 @@ export default {
             window.addEventListener("mousemove", this.moveVideoBoxOnCursorMove);
           },
           onEnterBack: () => {
-            gsap.to(".videoBox_contain", {
+            gsap.to(this.$refs.videoContain, {
               y: "60%",
               duration: 0.5,
               ease: "linear",
@@ -214,15 +213,33 @@ export default {
     width: 100%;
     height: 100%;
   }
-  video {
+  & video {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 }
-@media screen and (max-width: 1280px) {
-  .accroche {
+@media screen and (max-width: 1920px) {
+  .bottom .accroche {
     font-size: 3rem;
+    max-width: 22ch;
+  }
+  .hero {
+    min-height: 80vh;
+  }
+  .title {
+    display: flex;
+    height: 66vh;
+    & img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .bottom {
+    margin-top: 20px;
+    & .scroll {
+      font-size: 1.1rem;
+    }
   }
 }
 </style>

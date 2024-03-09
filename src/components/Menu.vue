@@ -96,16 +96,14 @@ export default {
         tl.fromTo(
           ".fullMenu ul li",
           {
-            y: "0",
             opacity: 0.25,
           },
           {
-            y: "50%",
             opacity: 0,
             ease: "power2.inOut",
-            duration: 1.2,
+            duration: 0.3,
             overwrite: "auto",
-            stagger: 0.05,
+
             onComplete: () => {
               window.removeEventListener(
                 "mousemove",

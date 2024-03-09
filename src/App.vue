@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-
+  <CursorTracker />
   <Home />
 </template>
 
@@ -8,7 +8,7 @@
 import Home from "./pages/Home.vue";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
-import gsap from "gsap";
+import CursorTracker from "./components/CursorTracker.vue";
 
 export default {
   name: "Hero",
@@ -16,6 +16,7 @@ export default {
     Home,
     Footer,
     NavBar,
+    CursorTracker,
   },
   data() {
     return {};
@@ -24,4 +25,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

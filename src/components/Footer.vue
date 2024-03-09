@@ -159,6 +159,7 @@ export default {
         & p {
           font-size: 4.25vw;
           mix-blend-mode: difference;
+          line-height: 110%;
           &:first-child {
             font-weight: bold;
           }
@@ -197,6 +198,31 @@ export default {
       font-size: 1.5rem;
       font-weight: 400;
     }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .footer {
+    padding: 4rem 40px 24px 40px;
+    &_credits {
+      & p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .footer_main {
+    height: 68%;
+    &_menu {
+      & p {
+        font-size: 2.8rem;
+      }
+    }
+  }
+  .footer_main_menu a:not(:last-child) {
+    margin-right: 30px;
+  }
+  .footer_main_banner_right img {
+    height: 14rem;
   }
 }
 </style>

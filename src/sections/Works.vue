@@ -8,7 +8,7 @@
         :key="index"
       >
         <div
-          class="videoContainer"
+          class="videoContainer cursor-pointer"
           :style="`background-image: url(${work.img})`"
           @mouseenter="hoverEnter"
           @mouseleave="hoverLeave"
@@ -116,7 +116,7 @@ export default {
 
       // Animer le zoom de l'image de fond
       gsap.to(videoContainer, {
-        backgroundSize: "110%", // Zoom léger
+        backgroundSize: "+=10%", // Zoom léger
         duration: 0.5,
         ease: "power1.out",
       });
@@ -138,7 +138,7 @@ export default {
 
       // Annuler le zoom de l'image de fond
       gsap.to(videoContainer, {
-        backgroundSize: "100%", // Retour à l'échelle normale
+        backgroundSize: "cover", // Retour à l'échelle normale
         duration: 0.5,
         ease: "power1.out",
         overwrite: "auto",
@@ -197,7 +197,7 @@ h2 {
 .videoContainer {
   height: 75%;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
   border-radius: 0.25rem;
   display: flex;
   align-items: center;
@@ -225,6 +225,21 @@ h2 {
     opacity: 0.8;
     transform: translateY(-12px);
     margin-left: 24px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  h2 {
+    font-size: 5rem;
+  }
+  .videoContainer {
+    height: 70vh;
+  }
+  .titleContainer {
+    margin-top: 1.5rem;
+    & h3 {
+      font-size: 3.4rem;
+    }
   }
 }
 </style>

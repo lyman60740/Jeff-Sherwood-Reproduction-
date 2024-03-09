@@ -1,14 +1,14 @@
 <template>
   <nav>
     <div class="left">
-      <span class="left_logo">J. Sherwood</span>
+      <span class="left_logo cursor-pointer">J. Sherwood</span>
       <div>Laguna Beach, CA {{ currentHour }}</div>
     </div>
     <ul class="nav-links">
       <li><a href="#">Resume</a></li>
       <li><a href="#">Services</a></li>
       <li><a href="#">Get in Touch</a></li>
-      <li class="menu">
+      <li class="menu cursor-pointer">
         <div class="menu_word">
           <span>Menu</span>
           <span>Close</span>
@@ -153,7 +153,7 @@ nav {
     justify-content: space-between;
     margin-left: 10px;
     height: 10px;
-    width: 20px;
+    width: 40px;
 
     & div {
       height: 2px;
@@ -161,6 +161,15 @@ nav {
       mix-blend-mode: difference;
       background: white;
     }
+  }
+}
+@media screen and (max-width: 1920px) {
+  nav {
+    font-size: 20px;
+    padding-top: 26px;
+  }
+  .menu_word {
+    height: 25px;
   }
 }
 </style>

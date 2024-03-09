@@ -3,6 +3,7 @@
     <Menu />
     <div id="smooth-wrapper">
       <div id="smooth-content">
+        <CursorTracker />
         <div class="mainHome">
           <HeroBanner />
           <TransitVideo />
@@ -89,5 +90,13 @@ export default {
 #smooth-content {
   padding-top: 100px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1920px) {
+  .mainHome {
+  }
+  #smooth-content {
+    padding-top: 60px;
+  }
 }
 </style>

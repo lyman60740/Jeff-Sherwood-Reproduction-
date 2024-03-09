@@ -2,18 +2,18 @@
   <div class="news">
     <div class="topNews animate-on-scroll">
       <h2>NEWS & UPDATES</h2>
-      <span>SEE ALL</span>
+      <span class="cursor-pointer">SEE ALL</span>
     </div>
 
     <div class="newsBloc animate-on-scroll">
-      <div class="bloc">
+      <div class="bloc cursor-pointer">
         <img
           src="https://assets-global.website-files.com/65a6d240beef37496c54ef5b/65c1b8bde6cc834c337cfc25_avgjoe-book-cover.jpg"
           alt=""
         />
         <h3>Featured in "Average Joe: Be the Silicon Vallez Tech Genius"</h3>
       </div>
-      <div class="bloc">
+      <div class="bloc cursor-pointer">
         <img
           src="https://assets-global.website-files.com/65a6d240beef37496c54ef5b/65c6908173d25f93d7caf65d_design-thinking.png"
           alt=""
@@ -25,7 +25,7 @@
       <h3 class="pressTitle">Recent Press</h3>
       <div class="pressBoxLines">
         <div
-          class="pressLine animate-on-scroll"
+          class="pressLine animate-on-scroll cursor-pointer"
           v-for="(pressLine, index) in pressLines"
           :key="index"
         >
@@ -309,7 +309,7 @@ export default {
     white-space: nowrap;
   }
   & .pressBoxLines {
-    width: 105%;
+    width: 101vw;
   }
   & .pressLine {
     position: relative;
@@ -375,6 +375,45 @@ export default {
       display: flex;
       justify-content: space-evenly;
     }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .news {
+    margin-top: calc(120px + 5vh);
+    & h2 {
+      font-size: 5rem;
+    }
+  }
+  .topNews {
+    margin-bottom: 4rem;
+  }
+  .bloc {
+    & h3 {
+      font-size: 2.4rem;
+      margin-top: 20px;
+    }
+  }
+  .press {
+    & span {
+      font-size: 1rem;
+    }
+    & h3 {
+      font-size: 1.4rem;
+    }
+    & .pressLine {
+      padding-left: 60px;
+      padding-right: 60px;
+      & .imgPress {
+        aspect-ratio: 9/10;
+      }
+      & h3 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .marks {
+    margin-top: 30vh;
   }
 }
 </style>

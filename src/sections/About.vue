@@ -3,7 +3,7 @@
     <div class="left">
       <h2>(ABOUT)</h2>
       <div class="videoBox1" ref="videoBox1">
-        <div class="videoBox1_contain">
+        <div class="videoBox1_contain" ref="videoContain">
           <video
             muted
             playsinline
@@ -52,7 +52,8 @@ export default {
         trigger: ".about",
         start: "top top+=5%",
         endTrigger: ".about",
-        end: "bottom-=180 top",
+        end: "bottom-=300 top",
+        markers: false,
         scrub: false,
         pin: this.$refs.videoBox1,
       },
@@ -111,9 +112,18 @@ export default {
     transition: all 0.1s;
     &_contain {
       width: 100%;
+      transform: translate(0, 0) !important;
       & video {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .left {
+    & h2 {
+      font-size: 1.1rem;
     }
   }
 }
