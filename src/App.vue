@@ -1,7 +1,14 @@
 <template>
-  <NavBar />
-  <CursorTracker />
-  <Home />
+  <div>
+    <div v-if="isAvailable">
+      <NavBar />
+      <CursorTracker />
+      <Home />
+    </div>
+    <div v-if="!isAvailable">
+      <NotAvailable />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -9,6 +16,7 @@ import Home from "./pages/Home.vue";
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
 import CursorTracker from "./components/CursorTracker.vue";
+import NotAvailable from "./pages/NotAvailable.vue";
 
 export default {
   name: "Hero",
@@ -17,11 +25,16 @@ export default {
     Footer,
     NavBar,
     CursorTracker,
+    NotAvailable,
   },
   data() {
-    return {};
+    return {
+      isAvailable: document.body.clientWidth > 1200,
+    };
   },
-  mounted() {},
+  mounted() {
+    console.log(document.body.clientWidth);
+  },
 };
 </script>
 

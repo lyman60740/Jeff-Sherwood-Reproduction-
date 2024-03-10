@@ -141,7 +141,7 @@ nav {
   align-items: center;
   cursor: pointer;
   position: absolute;
-  right: -10vw;
+  right: -15vw;
   &_word {
     height: 30px;
     overflow: hidden;
