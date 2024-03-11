@@ -129,7 +129,7 @@ export default {
     },
 
     hoverLeave(e) {
-      const videoContainer = e.target; // Le conteneur qui a l'image de fond
+      const videoContainer = e.target;
       const video = videoContainer.querySelector("video");
       const title = videoContainer.nextElementSibling.querySelector("h3");
       // Animer l'opacité de la vidéo pour qu'elle disparaisse
